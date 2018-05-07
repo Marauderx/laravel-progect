@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/data', 'GanttController@get');
-Route::resource('task', 'TaskController');
-Route::resource('link', 'LinkController');
+Route::get('/data/{id}', 'GanttController@get');
+Route::resource('/gantt/{id}/task', 'TaskController');
+Route::resource('/gantt/{id}/link', 'LinkController');
 /*
 |--------------------------------------------------------------------------
 | API Routes

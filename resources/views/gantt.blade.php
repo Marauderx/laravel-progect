@@ -24,9 +24,9 @@
     gantt.config.order_branch_free = true;
 
     gantt.init("gantt_here");
-    gantt.load("/api/data");
+    gantt.load("/api/data/{{ $id }}");
 
-    var dp = new gantt.dataProcessor("/api");
+    var dp = new gantt.dataProcessor("/api/gantt/{{ $id }}");
     dp.init(gantt);
     dp.setTransactionMode("REST");
 </script>

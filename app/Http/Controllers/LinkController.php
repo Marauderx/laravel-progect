@@ -6,12 +6,13 @@ use App\Link;
 
 class LinkController extends Controller
 {
-    public function store(Request $request){
+    public function store($gantt, Request $request){
         $link = new Link();
 
         $link->type = $request->type;
         $link->source = $request->source;
         $link->target = $request->target;
+        $link->gantt_id = $gantt;
 
         $link->save();
 
@@ -21,7 +22,7 @@ class LinkController extends Controller
         ]);
     }
 
-    public function update($id, Request $request){
+    public function update($gantt, $id, Request $request){
         $link = Link::find($id);
 
         $link->type = $request->type;
@@ -35,7 +36,7 @@ class LinkController extends Controller
         ]);
     }
 
-    public function destroy($id){
+    public function destroy($gantt, $id){
         $link = Link::find($id);
         $link->delete();
 

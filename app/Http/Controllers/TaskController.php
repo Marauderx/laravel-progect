@@ -6,7 +6,7 @@ use App\Task;
 
 class TaskController extends Controller
 {
-    public function store(Request $request){
+    public function store($gantt, Request $request){
 
         $task = new Task();
 
@@ -15,6 +15,7 @@ class TaskController extends Controller
         $task->duration = $request->duration;
         $task->progress = $request->has("progress") ? $request->progress : 0;
         $task->parent = $request->parent;
+        $task->gantt_id = $gantt;
 
         $task->save();
 
@@ -24,7 +25,7 @@ class TaskController extends Controller
         ]);
     }
 
-    public function update($id, Request $request){
+    public function update($gantt, $id, Request $request){
         $task = Task::find($id);
 
         $task->text = $request->text;
@@ -45,7 +46,7 @@ class TaskController extends Controller
         ]);
     }
 
-    public function destroy($id){
+    public function destroy($gantt, $id){
         $task = Task::find($id);
         $task->delete();
 

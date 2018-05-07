@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('gantt');
+Route::get('/gantt/{id}', function ($id) {
+    return view('gantt', ['id' => $id]);
 });
 
 Auth::routes();
