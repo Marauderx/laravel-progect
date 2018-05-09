@@ -12,9 +12,12 @@
 */
 
 Route::get('/gantt/{id}', function ($id) {
-    return view('gantt', ['id' => $id]);
+    $mainGantts = \App\Gantt::all();
+    return view('gantt', ['id' => $id], compact('mainGantts'));
 });
 
+
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

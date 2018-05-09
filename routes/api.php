@@ -5,6 +5,10 @@ use Illuminate\Http\Request;
 Route::get('/data/{id}', 'GanttController@get');
 Route::resource('/gantt/{id}/task', 'TaskController');
 Route::resource('/gantt/{id}/link', 'LinkController');
+Route::resource('/gantt/{id}/gantt', 'MainGanttsController');
+
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes

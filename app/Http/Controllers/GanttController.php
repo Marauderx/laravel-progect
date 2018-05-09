@@ -9,10 +9,12 @@ class GanttController extends Controller
         $tasks = new Task();
         $links = new Link();
 
+
         return response()->json([
             "data" => $tasks->where('gantt_id', $id)->orderBy('sortorder')->get(),
-            "links" => $links->where('gantt_id', $id)->get()
+            "links" => $links->where('gantt_id', $id)->get(),
         ]);
 
     }
+
 }

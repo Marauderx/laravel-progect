@@ -14,8 +14,6 @@ class CreateLinksTable extends Migration
             $table->integer('source');
             $table->integer('target');
             $table->timestamps();
-            $table->integer('gantt_id')->unsigned();
-            $table->foreign('gantt_id')->references('id')->on('gantts');
         });
     }
 
