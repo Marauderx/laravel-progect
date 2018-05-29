@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gantt extends Model
 {
-    protected $table = 'gantts';  
+    protected $table = 'gantts';
+    protected $fillable = ['name', 'id'];  
 }

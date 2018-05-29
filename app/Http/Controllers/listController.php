@@ -2,25 +2,42 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
+
+
 use App\Gantt;
 use DB;
 
-class MainGanttsController extends Controller
+class listController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //$mainGantts = Gantt::all();
-        //return view('gantt', compact('mainGantts'));
-        //return view('gantt', ['id' => $id], compact('mainGantts'));
-        return view('gantt', ['id' => $id]);
+      $mainGantts = Gantt::all();
+      return view('list', compact('mainGantts'));
     }
+
+    public function addName(Request $request)
+    {
+      //$res = Gantt::create(['name' => $request->name]);
+      //$data = ['id' => $res->id, 'name' => $request->name];
+
+      //return $data;
+      $name = Gantt::create($request->all());
+
+
+      return response()->json([
+          "tid" => $name->id,
+          "name" => $name->name
+
+      ]);
+  }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -40,16 +57,20 @@ class MainGanttsController extends Controller
      */
     public function insert(Request $request)
     {
+      //$name = $request->input('name');
 
+      //$data = array('name'=>$name);
+
+      //DB::table('gantts')->insert($data);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Gantts $gantts)
+    public function show($id)
     {
         //
     }
@@ -57,10 +78,10 @@ class MainGanttsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gantts $gantts)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +90,10 @@ class MainGanttsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gantts $gantts)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,11 +101,16 @@ class MainGanttsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gantts $gantts)
+    public function destroy($id)
     {
-        //
+
+      Gantt::destroy($id);
+
+      return response()->json([
+          'success' => 'Record has been deleted successfully!'
+        ]);
     }
 }

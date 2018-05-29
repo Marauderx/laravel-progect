@@ -6,6 +6,8 @@ Route::get('/data/{id}', 'GanttController@get');
 Route::resource('/gantt/{id}/task', 'TaskController');
 Route::resource('/gantt/{id}/link', 'LinkController');
 Route::resource('/gantt/{id}/gantt', 'MainGanttsController');
+Route::post('/list', 'listController@addName');
+Route::delete('/gantt/{id}', 'listController@destroy');
 
 
 

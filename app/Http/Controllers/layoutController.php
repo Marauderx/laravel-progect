@@ -2,24 +2,18 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-use App\Gantt;
-use DB;
 
-class MainGanttsController extends Controller
+class layoutController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //$mainGantts = Gantt::all();
-        //return view('gantt', compact('mainGantts'));
-        //return view('gantt', ['id' => $id], compact('mainGantts'));
-        return view('gantt', ['id' => $id]);
+        return view('layout');
     }
 
     /**
@@ -38,18 +32,18 @@ class MainGanttsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function insert(Request $request)
+    public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Gantts $gantts)
+    public function show($id)
     {
         //
     }
@@ -57,10 +51,10 @@ class MainGanttsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gantts $gantts)
+    public function edit($id)
     {
         //
     }
@@ -69,10 +63,10 @@ class MainGanttsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gantts $gantts)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -80,10 +74,10 @@ class MainGanttsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gantts  $gantts
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gantts $gantts)
+    public function destroy($id)
     {
         //
     }

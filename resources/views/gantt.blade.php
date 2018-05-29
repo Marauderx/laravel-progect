@@ -16,7 +16,7 @@
     </style>
 </head>
 <body>
-<div id="gantt_here" style='width:100%; height:60%;'></div>
+<div id="gantt_here" style='width:100%; height:100%;'></div>
 <script type="text/javascript">
     gantt.config.xml_date = "%Y-%m-%d %H:%i:%s";
 
@@ -30,23 +30,5 @@
     dp.init(gantt);
     dp.setTransactionMode("REST");
 </script>
-
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-    </tr>
-  </thead>
-  @foreach($mainGantts as $Gantt)
-  <tbody>
-    <tr>
-      <th scope="row">{{ $Gantt->id}}</th>
-      <td><a href="/gantt/{{ $Gantt->id }}">{{ $Gantt->name}}</a></td>
-    </tr>
-  @endforeach
-  </tbody>
-</table>
 
 </body>
