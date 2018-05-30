@@ -41,12 +41,12 @@ body {
 
 #page-content-wrapper {
   width: 100%;
-  position: absolute;
+  position:;
   padding: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
-  position: absolute;
+  position:;
   margin-right: -250px;
 }
 

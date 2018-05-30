@@ -29,6 +29,8 @@ Route::delete('/gantt/{id}', 'listController@destroy');
 
 Route::get('/layout', 'layoutController@index');
 
+Route::get('/config', 'ConfigsController@index');
+
 Auth::routes();
 
 
