@@ -29,7 +29,15 @@ Route::delete('/gantt/{id}', 'listController@destroy');
 
 Route::get('/layout', 'layoutController@index');
 
-Route::get('/config', 'ConfigsController@index');
+Route::get('/config/{id}', 'ConfigsController@index');
+Route::post('/config/{id}', 'ConfigsController@store');
+
+
+Route::get('/listschedule', 'listscheduleController@index');
+
+Route::get('/fleet', 'FleetController@index');
+
+Route::get('/listfleet', 'listFleetController@index');
 
 Auth::routes();
 

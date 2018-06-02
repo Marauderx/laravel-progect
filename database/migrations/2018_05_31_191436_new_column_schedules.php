@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateColumnTasks extends Migration
+class NewColumnSchedules extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateColumnTasks extends Migration
      */
     public function up()
     {
-      Schema::table('tasks', function (Blueprint $table) {
-        $table->integer('gantt_id')->unsigned();
-        $table->foreign('gantt_id')->references('id')->on('gantts')->onDelete('cascade');
+      Schema::table('schedules', function (Blueprint $table) {
+        $table->integer('schedules_id')->unsigned();
+        $table->foreign('schedules_id')->references('id')->on('allschedules')->onDelete('cascade');
         });
     }
 
@@ -26,8 +26,6 @@ class CreateColumnTasks extends Migration
      */
     public function down()
     {
-      Schema::table('tasks', function($table) {
-          $table->dropColumn('gantt_id');
-        });
+        //
     }
 }

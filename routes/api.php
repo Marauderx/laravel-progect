@@ -8,6 +8,7 @@ Route::resource('/gantt/{id}/link', 'LinkController');
 Route::resource('/gantt/{id}/gantt', 'MainGanttsController');
 Route::post('/list', 'listController@addName');
 Route::delete('/gantt/{id}', 'listController@destroy');
+Route::post('/config/{id}', 'ConfigsController@store');
 
 
 

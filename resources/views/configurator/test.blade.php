@@ -54,7 +54,7 @@
             <div class="row">
               <div class="col-md-6 mb-3">
                 <label for="firstName">Номер рейса</label>
-                  <input type="text" v-model="flight.number" class="form-control" id="number" placeholder="" name="number" value="" required>
+                  <input type="text" v-model="flight.number" class="form-control" id="firstName" placeholder="" value="" required>
                     <div class="invalid-feedback">
                         Valid first name is required.
                       </div>
@@ -63,14 +63,14 @@
                 <div class="row">
                       <div class="col-md-6 mb-3">
                           <label for="lastName">Начало рейса</label>
-                          <input type="date" v-model="flight.beginning" class="form-control" id="beginning" placeholder="" name="beginning" value="" required>
+                          <input type="date" v-model="flight.beginning" class="form-control" id="lastName" placeholder="" value="" required>
                             <div class="invalid-feedback">
                               Valid last name is required.
                             </div>
                         </div>
                       <div class="col-md-6 mb-3">
                           <label for="lastName">Конец рейса</label>
-                          <input type="date" v-model="flight.ending" class="form-control" id="ending" placeholder="" name="ending" value="" required>
+                          <input type="date" v-model="flight.ending" class="form-control" id="lastName" placeholder="" value="" required>
                             <div class="invalid-feedback">
                               Valid last name is required.
                             </div>
@@ -80,14 +80,14 @@
               <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Тип судна</label>
-                        <input type="text" v-model="flight.type" class="form-control" id="type" placeholder="" name="type" value="" required>
+                        <input type="text" v-model="flight.type" class="form-control" id="lastName" placeholder="" value="" required>
                           <div class="invalid-feedback">
                             Valid last name is required.
                           </div>
                       </div>
                     <div class="col-md-6 mb-3">
                         <label for="lastName">Конфигурация самолета</label>
-                        <input type="text" v-model="flight.configuration" class="form-control" id="configuration" placeholder="" name="configuration" value="" required>
+                        <input type="text" v-model="flight.configuration" class="form-control" id="lastName" placeholder="" value="" required>
                           <div class="invalid-feedback">
                             Valid last name is required.
                           </div>
@@ -97,14 +97,14 @@
             <div class="row">
                   <div class="col-md-6 mb-3">
                       <label for="lastName">Аэропорт отправления</label>
-                      <input type="text" v-model="flight.airportOfDeparture" class="form-control" id="airportOfDeparture" placeholder="" name="airportOfDeparture" value="" required>
+                      <input type="text" v-model="flight.airportOfDeparture" class="form-control" id="lastName" placeholder="" value="" required>
                         <div class="invalid-feedback">
                           Valid last name is required.
                         </div>
                     </div>
                   <div class="col-md-6 mb-3">
                       <label for="lastName">Время отправления</label>
-                      <input type="text" v-model="flight.timeOfDeparture" class="form-control" id="timeOfDeparture" placeholder="" name="timeOfDeparture" value="" required>
+                      <input type="text" v-model="flight.timeOfDeparture" class="form-control" id="lastName" placeholder="" value="" required>
                         <div class="invalid-feedback">
                           Valid last name is required.
                         </div>
@@ -114,14 +114,14 @@
           <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="lastName">Аэропорт прибытия</label>
-                    <input type="text" v-model="flight.airportOfArriving" class="form-control" id="airportOfArriving" placeholder="" name="airportOfArriving" value="" required>
+                    <input type="text" v-model="flight.airportOfArriving" class="form-control" id="lastName" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid last name is required.
                       </div>
                   </div>
                 <div class="col-md-6 mb-3">
                     <label for="lastName">Время прибытия</label>
-                    <input type="text" v-model="flight.timeOfArriving" class="form-control" id="timeOfArriving" placeholder="" name="timeOfArriving" value="" required>
+                    <input type="text" v-model="flight.timeOfArriving" class="form-control" id="lastName" placeholder="" value="" required>
                       <div class="invalid-feedback">
                         Valid last name is required.
                       </div>
@@ -219,12 +219,9 @@
               this.form.flights.splice(key, 1)
             },
             save (e) {
-              let url = '/config/{{ $id }}'
-              console.log(url)
-              axios.post(url, this.form)
+              axios.post('/api/config/{{ $id }}', this.form)
               .then(res => {
-                console.log(res.data)
-
+                console.log(this.form.flights)
               })
               .catch(err => {
                 console.log(err.data)

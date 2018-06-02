@@ -43,7 +43,37 @@
     </header>
 
     <hr class="mb-4">
+<div class="container">
+<h2>Расписание</h2>
+<br>
+<br>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary" type="button">Button</button>
+  </div>
+</div>
 
+    <table class="table">
+      <caption>List of users</caption>
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Название</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>213</td>
+          <td><button type="button" class="btn btn-outline-dark btn-sm deleteGantt" data-id="">Удалить</button></td>
+          <td><button type="button" class="btn btn-outline-dark btn-sm" data-id="">Изменить</button></td>
+        </tr>
+      </tbody>
+    </table>
+<div>
     </div>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">

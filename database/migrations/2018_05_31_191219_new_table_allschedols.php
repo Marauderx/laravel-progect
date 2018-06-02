@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangesColumnLinks extends Migration
+class NewTableAllschedols extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class ChangesColumnLinks extends Migration
      */
     public function up()
     {
-      Schema::table('links', function (Blueprint $table) {
-          $table->dropForeign('links_gantt_id_foreign');
-          $table->dropColumn('gantt_id');
-        });
+      Schema::create('allschedules', function (Blueprint $table) {
+        $table->increments('id');
+        $table->string('name');
+        $table->timestamps();
+      });
     }
 
     /**

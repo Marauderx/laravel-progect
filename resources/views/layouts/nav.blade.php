@@ -6,16 +6,16 @@
             </a>
         </li>
         <li>
-            <a href="#">Dashboard</a>
+            <a href="/listschedule">Конфигуратор расписания</a>
         </li>
         <li>
-            <a href="#">Shortcuts</a>
+            <a href="/list">Конфигуратор Гантт</a>
         </li>
         <li>
-            <a href="#">Overview</a>
+            <a href="/fleet">Оптимизация расписания</a>
         </li>
         <li>
-            <a href="#">Events</a>
+            <a href="/listfleet">Расписания рейсов</a>
         </li>
         <li>
             <a href="#">About</a>

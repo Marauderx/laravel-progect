@@ -4,11 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
-use App\Gantt;
-use DB;
-
-class listController extends Controller
+class ListscheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,27 +13,8 @@ class listController extends Controller
      */
     public function index()
     {
-      $mainGantts = Gantt::all();
-      return view('list', compact('mainGantts'));
+        return view('configurator.listschedule');
     }
-
-    public function addName(Request $request)
-    {
-      //$res = Gantt::create(['name' => $request->name]);
-      //$data = ['id' => $res->id, 'name' => $request->name];
-
-      //return $data;
-      $name = Gantt::create($request->all());
-      
-
-      return response()->json([
-          "tid" => $name->id,
-          "name" => $name->name
-
-      ]);
-  }
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -55,13 +32,9 @@ class listController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function insert(Request $request)
+    public function store(Request $request)
     {
-      //$name = $request->input('name');
-
-      //$data = array('name'=>$name);
-
-      //DB::table('gantts')->insert($data);
+        //
     }
 
     /**
@@ -106,11 +79,6 @@ class listController extends Controller
      */
     public function destroy($id)
     {
-
-      Gantt::destroy($id);
-
-      return response()->json([
-          'success' => 'Record has been deleted successfully!'
-        ]);
+        //
     }
 }

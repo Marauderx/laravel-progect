@@ -14,8 +14,8 @@ class CreateColumnLinks extends Migration
     public function up()
     {
       Schema::table('links', function (Blueprint $table) {
-          $table->integer('gantt_id')->unsigned();
-          $table->foreign('gantt_id')->references('id')->on('gantts');
+        $table->integer('gantt_id')->unsigned();
+        $table->foreign('gantt_id')->references('id')->on('gantts')->onDelete('cascade');
         });
     }
 
@@ -27,7 +27,8 @@ class CreateColumnLinks extends Migration
     public function down()
     {
       Schema::table('links', function($table) {
-          $table->dropColumn('gantt_id');
+        $table->dropForeign('links_gantt_id_foreign');
+        $table->dropColumn('gantt_id');
         });
     }
 }
