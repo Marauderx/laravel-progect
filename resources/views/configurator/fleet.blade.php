@@ -37,7 +37,7 @@
 
     <header>
       <div class="container">
-        <h1>Название страницы</h1>
+        <h1>Оптимизация расписания рейсов</h1>
         <p>Описание</p>
       </div>
     </header>
@@ -52,27 +52,42 @@
     <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">№</th>
+        <th scope="col">Тип ВС</th>
+        <th scope="col">Конфигурация</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
+        <td>SU 24</td>
+        <td>2200124K</td>
         <td><label class="checkbox inline">
-    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+    <input type="checkbox" id="inlineCheckbox1" value="option1">
   </label></td>
       </tr>
       <tr>
         <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
+        <td>SU 21</td>
+        <td>2200132K</td>
         <td><label class="checkbox inline">
-    <input type="checkbox" id="inlineCheckbox1" value="option1"> 1
+    <input type="checkbox" id="inlineCheckbox1" value="option1">
+  </label></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>SU 23</td>
+        <td>2200132K</td>
+        <td><label class="checkbox inline">
+    <input type="checkbox" id="inlineCheckbox1" value="option1">
+  </label></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>SU 22</td>
+        <td>2200132K</td>
+        <td><label class="checkbox inline">
+    <input type="checkbox" id="inlineCheckbox1" value="option1">
   </label></td>
       </tr>
     </tbody>
@@ -103,11 +118,11 @@
       <div class="form-group">
 
           <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option>Аэрофлот</option>
+            <option>Авистар-ТУ</option>
+            <option>Аврора</option>
+            <option>Азимут</option>
+            <option>Атран</option>
           </select>
       </div>
   </div>
@@ -134,16 +149,64 @@
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>Mark</td>
+          <td>SU 24</td>
+          <td>12033</td>
+          <td>12.07.2018</td>
+          <td>16.07.2018</td>
+          <td>SVO</td>
+          <td>40 минут</td>
+          <td>12:55</td>
+          <td>AER</td>
+          <td>40 минут</td>
+          <td>14:55</td>
+        </tr>
+        <tr>
+          <td>SU 23</td>
+          <td>12033</td>
+          <td>12.07.2018</td>
+          <td>16.07.2018</td>
+          <td>SVO</td>
+          <td>40 минут</td>
+          <td>12:55</td>
+          <td>AER</td>
+          <td>40 минут</td>
+          <td>14:55</td>
+        </tr>
+        <tr>
+          <td>SU 22</td>
+          <td>12033</td>
+          <td>11.07.2018</td>
+          <td>18.07.2018</td>
+          <td>SVO</td>
+          <td>40 минут</td>
+          <td>12:55</td>
+          <td>AER</td>
+          <td>40 минут</td>
+          <td>14:55</td>
+        </tr>
+        <tr>
+          <td>SU 21</td>
+          <td>12033</td>
+          <td>14.08.2018</td>
+          <td>19.08.2018</td>
+          <td>SVO</td>
+          <td>40 минут</td>
+          <td>12:55</td>
+          <td>AER</td>
+          <td>40 минут</td>
+          <td>14:55</td>
+        </tr>
+        <tr>
+          <td>SU 24</td>
+          <td>12033</td>
+          <td>12.07.2018</td>
+          <td>16.07.2018</td>
+          <td>SVO</td>
+          <td>40 минут</td>
+          <td>12:55</td>
+          <td>AER</td>
+          <td>40 минут</td>
+          <td>14:55</td>
         </tr>
       </tbody>
     </table>
@@ -153,7 +216,7 @@
   <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
     <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Button</button>
+      <button class="btn btn-outline-secondary" type="button">Сохранить</button>
     </div>
   </div>
 </div>

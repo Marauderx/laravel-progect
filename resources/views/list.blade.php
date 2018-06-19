@@ -65,8 +65,9 @@
 
       <header>
         <div class="container">
-          <h1>Название страницы</h1>
-          <p>Описание</p>
+          <h1>Конфигуратор Гант</h1>
+          <p></p>
+          <br>
         </div>
       </header>
 
@@ -75,6 +76,16 @@
       </div>
 
 <div class="container-fluid">
+
+  <form id="add_name" class="validateform">
+    {{ csrf_field() }}
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <button  class="btn btn-outline-secondary"  type="submit">Добавить</button>
+    </div>
+    <input type="text" name="name" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+  </div>
+  </form>
 
 <table class="table table-hover table-striped" >
   <thead>
@@ -90,8 +101,8 @@
     <tr data-id="{{ $Gantt->id}}">
       <th scope="row">{{ $Gantt->id}}</th>
       <td><a href="/gantt/{{ $Gantt->id }}">{{ $Gantt->name}}</a></td>
-      <td><button type="button" class="btn btn-outline-primary btn-sm deleteGantt" data-id="{{ $Gantt->id }}">Удалить</button></td>
-      <td><button type="button" class="btn btn-outline-primary btn-sm">Изменить</button></td>
+      <td><button type="button" class="btn btn-outline-secondary btn-sm deleteGantt" data-id="{{ $Gantt->id }}">Удалить</button></td>
+      <td><button type="button" class="btn btn-outline-secondary btn-sm">Изменить</button></td>
     </tr>
   @endforeach
   </tbody>
@@ -100,15 +111,7 @@
 <br>
 
 
-<form id="add_name" class="validateform">
-  {{ csrf_field() }}
-<div class="input-group input-group-sm mb-3">
-  <div class="input-group-prepend">
-    <button  class="btn btn-outline-primary"  type="submit">Добавить</button>
-  </div>
-  <input type="text" name="name" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
-</div>
-</form>
+
 
 </div>
 
