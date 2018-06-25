@@ -36,6 +36,7 @@ Route::post('/config/{id}', 'ConfigsController@store');
 Route::get('/listschedule', 'listscheduleController@index');
 
 Route::get('/fleet', 'FleetController@index');
+Route::post('/fleet/zaglushka', 'FleetController@update');
 
 Route::get('/listfleet', 'listFleetController@index');
 Route::post('/listfleet', 'listfleetController@addName');

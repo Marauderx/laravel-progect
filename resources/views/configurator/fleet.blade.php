@@ -21,15 +21,6 @@
         <!-- Custom styles for this template -->
         <link href="{{ asset('/css/simple-sidebar.css')}}" rel="stylesheet">
 
-        <style>
-        #white{
-          color: #FFFFFF !important;
-          text-decoration: none;
-        }
-        #white{
-text-decoration: none;
-}
-        </style>
   </head>
   <body>
 
@@ -61,14 +52,17 @@ text-decoration: none;
     <br>
 
 <div class="conteiner">
+<form method="post" action="/fleet/zaglushka">
+  <input name="_token" type="hidden" value="{{ csrf_token() }}" />
+
   <div class="row">
 
                <div class="col-md-5 mb-3">
                  <label for="country">Тип воздушного судна</label>
-                 <select class="custom-select d-block w-100" id="country" required>
-                   <option value="">МС 21</option>
-                   <option>МС 21</option>
-                   <option>МС 22</option>
+                 <select class="custom-select d-block w-100" id="country" name="type" required>
+                   @foreach($mainAircraft as $type)
+                   <option value = "{{ $type->nameAircraft}}" >{{ $type->nameAircraft}}</option>
+                   @endforeach
                  </select>
                  <div class="invalid-feedback">
                    Please select a valid country.
@@ -76,14 +70,19 @@ text-decoration: none;
                </div>
                <div class="col-md-3 mb-3">
                  <label for="zip">Конфигурация</label>
-                 <input type="text" class="form-control" id="zip" placeholder="" required value="22231009">
+                 @foreach($mainAircraft as $type)
+                 <input name="configuration" type="hidden" value="{{ $type->aircraftType}}" />
+                 <p type="text" class="form-control" id="zip" placeholder="" name="configuration" value="{{ $type->aircraftType}}" required>{{ $type->aircraftType}}</p>
+                 @endforeach
                  <div class="invalid-feedback">
                    Zip code required.
                  </div>
                </div>
                <div class="col-md-3 mb-3">
                  <label for="zip">Средний налет</label>
-                 <input type="text" class="form-control" id="zip" placeholder="" required value="900 ч.">
+                 @foreach($mainAircraft as $type)
+                 <p type="text" class="form-control" id="zip" placeholder="" required>{{ $type->flightTime}}</p>
+                 @endforeach
                  <div class="invalid-feedback">
                    Средний годовой налет.
                  </div>
@@ -108,7 +107,7 @@ text-decoration: none;
 
       <div class="col-md-5 mb-3">
           <label for="lastName">Количество бортов</label>
-          <input type="text" v-model="flight.ending" class="form-control" id="lastName" placeholder="" value="" required>
+          <input type="text" v-model="flight.ending" class="form-control" id="lastName" name="numbort" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -117,20 +116,18 @@ text-decoration: none;
         <div class="col-md-6 mb-3">
           <label for="lastName">Выберите расписание</label>
             <div class="form-group">
-                <select class="form-control" id="exampleFormControlSelect1">
-                  <option>Аэрофлот</option>
-                  <option>Авистар-ТУ</option>
-                  <option>Аврора</option>
-                  <option>Азимут</option>
-                  <option>Атран</option>
+                <select class="form-control" id="exampleFormControlSelect1" name="allshedule">
+                  @foreach($mainschedule as $schedule)
+                  <option value="{{$schedule->name}}">{{ $schedule->name}}</option>
+                  @endforeach
                 </select>
             </div>
         </div>
 
         <div class="col-md-5 mb-3">
-          <button type="button" class="btn btn-secondary btn-sm-3"><a id="white" href="/fleetschedule/4">Сформировать</a></button>
+          <button type="submit" class="btn btn-secondary btn-sm-3">Сформировать</button>
         </div>
-
+      </form>
 
 </div>
 

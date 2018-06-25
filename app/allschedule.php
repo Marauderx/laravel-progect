@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class allschedule extends Model
 {
-  protected $table = 'allschedule';
+  protected $table = 'allschedules';
   protected $fillable = ['name', 'id'];
 }

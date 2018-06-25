@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\schedule;
+use App\newschedule;
 use DB;
 
 class fleetscheduleController extends Controller
@@ -15,7 +15,7 @@ class fleetscheduleController extends Controller
      */
     public function index($id)
     {
-        $mainshedule = schedule::all();
+        $mainshedule = newschedule::all();
         return view('configurator.fleetschedule',['id' => $id], compact('mainshedule'));
     }
 
