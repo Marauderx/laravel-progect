@@ -48,7 +48,8 @@ text-decoration: none;
 
     <header>
       <div class="container">
-        <h1>Конфигуратор расписания рейсов</h1>
+        <h1>Оптимизация расписания рейсов</h1>
+        <p>Описание</p>
       </div>
     </header>
 

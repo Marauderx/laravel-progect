@@ -1,108 +1,172 @@
-<!doctype html>
-<html lang="en">
-  <head>
-
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <title>Simple Sidebar - Start Bootstrap Template</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!DOCTYPE html>
+<head>
 
 
-        <!-- Bootstrap core CSS -->
-        <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-        <!-- Custom styles for this template -->
-        <link href="{{ asset('/css/simple-sidebar.css')}}" rel="stylesheet">
-  </head>
-  <body>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-<div id="wrapper">
 
-<!-- Sidebar -->
-@include('layouts.nav')
-<!-- /#sidebar-wrapper -->
+  <!-- Bootstrap core CSS -->
+  <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
-<!-- Page Content -->
-  <div id="page-content-wrapper">
+  <!-- Custom styles for this template -->
+  <link href="{{ asset('/css/simple-sidebar.css')}}" rel="stylesheet">
 
-  @include('layouts.navbutton')
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+    let remove = function(event){
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+      });
 
-    <div class="container-fluid">
+      let id = $(event.target).data("id");
+      let token = $(event.target).data("token");
+      $.ajax({
+        url: "/fleetschedule/"+id,
+        type: 'DELETE',
+        dataType: "JSON",
+        data: {
+          "id": id,
+          "_method": 'DELETE',
+          "_token": token,
+        },
+        success: result => {
+          $('[data-id='+id+']').remove()
+        }
+      });
+    }
+    </script>
+</head>
+<body>
+  <div id="wrapper">
 
-    <header>
-      <div class="container">
-        <h1>Расписание рейсов</h1>
-        <p>Описание</p>
+  <!-- Sidebar -->
+  @include('layouts.nav')
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+    @include('layouts.navbutton')
+
+      <div class="container-fluid">
+
+      <header>
+        <div class="container">
+          <h1>Сформированное расписание</h1>
+          <p></p>
+          <br>
+        </div>
+      </header>
+
+      <hr class="mb-4">
+
       </div>
-    </header>
 
-    <hr class="mb-4">
-<div class="container">
-<h2>Расписание</h2>
-<br>
-<br>
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button">Button</button>
+<div class="container-fluid">
+
+  <form id="add_name" class="validateform">
+    {{ csrf_field() }}
+  <div class="input-group input-group-sm mb-3">
+    <div class="input-group-prepend">
+      <button  class="btn btn-outline-secondary"  type="submit">Добавить</button>
+    </div>
+    <input type="text" name="name" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
   </div>
+  </form>
+
+<table class="table table-hover table-striped" >
+  <thead>
+    <tr>
+      <th scope="col">Идентификатор</th>
+      <th scope="col">Название</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="table">
+  @foreach($mainFleet as $allnewschedule)
+    <tr data-id="{{ $allnewschedule->id}}">
+      <th scope="row">{{ $allnewschedule->id}}</th>
+      <td><a href="/fleetschedule/{{ $allnewschedule->id }}">{{ $allnewschedule->name}}</a></td>
+      <td><button type="button" class="btn btn-outline-secondary btn-sm deleteFleet" data-id="{{ $allnewschedule->id }}">Удалить</button></td>
+      <td><button type="button" class="btn btn-outline-secondary btn-sm">Изменить</button></td>
+    </tr>
+  @endforeach
+  </tbody>
+</table>
+
+<br>
+
+
+
+
 </div>
 
-    <table class="table">
-      <caption>List of users</caption>
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Название</th>
-          <th scope="col"></th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>213</td>
-          <td><button type="button" class="btn btn-outline-dark btn-sm deleteGantt" data-id="">Удалить</button></td>
-          <td><button type="button" class="btn btn-outline-dark btn-sm" data-id="">Изменить</button></td>
-        </tr>
-      </tbody>
-    </table>
-<div>
-    </div>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-  <p class="mb-1">&copy; Иркут</p>
-  <ul class="list-inline">
-  <li class="list-inline-item"><a href="#">Privacy</a></li>
-  <li class="list-inline-item"><a href="#">Terms</a></li>
-  <li class="list-inline-item"><a href="#">Support</a></li>
-  </ul>
-  </footer>
-  </div>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+<p class="mb-1">&copy; Иркут</p>
+<ul class="list-inline">
+<li class="list-inline-item"><a href="#">Privacy</a></li>
+<li class="list-inline-item"><a href="#">Terms</a></li>
+<li class="list-inline-item"><a href="#">Support</a></li>
+</ul>
+</footer>
+</div>
 </div>
 <!-- /#page-content-wrapper -->
 
 </div>
+<script src="{{ asset('/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
+<script>
 
-    <!-- /#wrapper -->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ asset('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
+$(document).ready(function(){
+    $('#add_name').on('submit', function(e){
         e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
+
+        $.ajax({
+            type: 'POST',
+            url: '/listfleet',
+            data: $('#add_name').serialize(),
+            success: function(result){
+              console.log(result)
+                $("#table:last-child")
+                .append("<tr data-id="
+                +result.tid
+                +"><th>"
+                +result.tid
+                +"</th><td><a href='/fleetschedule/"
+                +result.tid
+                +"'>"
+                +result.name
+                +"</a></td><td><button type='button' class='btn btn-outline-primary btn-sm deleteFleet' data-id="
+                +result.tid
+                +" onclick='remove(event)'>Удалить</button></td><td><button type='button' class='btn btn-outline-primary btn-sm'>Изменить</button></td></tr>");
+                $('#add_name')[0].reset();
+            }
+        });
     });
-    </script>
-  </body>
-</html>
+});
+
+$(".deleteFleet").click(remove);
+</script>

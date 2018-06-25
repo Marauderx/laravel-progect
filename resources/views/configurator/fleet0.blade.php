@@ -48,7 +48,8 @@ text-decoration: none;
 
     <header>
       <div class="container">
-        <h1>Конфигуратор расписания рейсов</h1>
+        <h1>Оптимизация расписания рейсов</h1>
+        <p>Описание</p>
       </div>
     </header>
 
@@ -62,10 +63,14 @@ text-decoration: none;
 
 <div class="conteiner">
   <div class="row">
+    <div id="vueform">
+      <form class="needs-validation" @submit="save" novalidate>
+        {{ csrf_field() }}
+        <div v-for="(flight, key) in form.flights" v-bind:key="key">
 
                <div class="col-md-5 mb-3">
                  <label for="country">Тип воздушного судна</label>
-                 <select class="custom-select d-block w-100" id="country" required>
+                 <select v-model="flight.aercraft" class="custom-select d-block w-100" id="country" required>
                    <option value="">МС 21</option>
                    <option>МС 21</option>
                    <option>МС 22</option>
@@ -76,30 +81,33 @@ text-decoration: none;
                </div>
                <div class="col-md-3 mb-3">
                  <label for="zip">Конфигурация</label>
-                 <input type="text" class="form-control" id="zip" placeholder="" required value="22231009">
+                 <input v-model="flight.config" type="text" class="form-control" id="zip" placeholder="" required value="22231009">
                  <div class="invalid-feedback">
                    Zip code required.
                  </div>
                </div>
                <div class="col-md-3 mb-3">
                  <label for="zip">Средний налет</label>
-                 <input type="text" class="form-control" id="zip" placeholder="" required value="900 ч.">
+                 <input type="text" v-model="flight.nalet" class="form-control" id="zip" placeholder="" required value="900 ч.">
                  <div class="invalid-feedback">
                    Средний годовой налет.
                  </div>
                </div>
 
                <div class="col-md-5 mb-3">
-                 <button type="button" class="btn btn-secondary btn-sm-3">Добавить борт</button>
+                 <button type="button" class="btn btn-secondary btn-sm-3" v-on:click="addFlight">Добавить борт</button>
                </div>
 
                <div class="col-md-5 mb-3">
-                 <button type="button" class="btn btn-secondary btn-sm-3">Удалить борт</button>
+                 <button type="button" class="btn btn-secondary btn-sm-3" v-on:click="delFlight(key)">Удалить борт</button>
                </div>
 
 
   </div>
 <hr class="mb-4">
+    <div>
+    </form>
+    </div>
 </div>
 <br>
 <br>
@@ -131,6 +139,12 @@ text-decoration: none;
           <button type="button" class="btn btn-secondary btn-sm-3"><a id="white" href="/fleetschedule/4">Сформировать</a></button>
         </div>
 
+        <div class="input-group col-md-6 mb-3">
+          <input type="text" class="form-control" placeholder="name" aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Сохранить</button>
+          </div>
+        </div>
 
 </div>
 
@@ -169,7 +183,27 @@ text-decoration: none;
     });
     </script>
   <script>
+  var token = document.head.querySelector('meta[name="csrf-token"]');
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 
+      let app = new Vue({
+        el: '#vueform',
+        data () {
+          return {
+            form: {
+              name: undefined,
+              flights: []
+            }
+          }
+        },
+        methods: {
+          addFlight () {
+            this.form.flights.push({
+              aercraft: undefined,
+              config: undefined,
+              nalet: undefined,
+            })
+          },
   </script>
   </body>
 </html>

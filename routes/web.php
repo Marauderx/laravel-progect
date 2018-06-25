@@ -38,6 +38,9 @@ Route::get('/listschedule', 'listscheduleController@index');
 Route::get('/fleet', 'FleetController@index');
 
 Route::get('/listfleet', 'listFleetController@index');
+Route::post('/listfleet', 'listfleetController@addName');
+Route::delete('/fleetschedule/{id}', 'listfleetController@destroy');
+Route::get('/fleetschedule/{id}', 'fleetscheduleController@index');
 
 Auth::routes();
 

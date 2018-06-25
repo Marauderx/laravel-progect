@@ -3,38 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\allnewschedule;
+use App\schedule;
 use DB;
 
-class ListfleetController extends Controller
+class fleetscheduleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $mainFleet = allnewschedule::all();
-        return view('configurator.listfleet', compact('mainFleet'));
+        $mainshedule = schedule::all();
+        return view('configurator.fleetschedule',['id' => $id], compact('mainshedule'));
     }
-
-    public function addName(Request $request)
-    {
-      //$res = Gantt::create(['name' => $request->name]);
-      //$data = ['id' => $res->id, 'name' => $request->name];
-
-      //return $data;
-      $name = allnewschedule::create($request->all());
-
-
-      return response()->json([
-          "tid" => $name->id,
-          "name" => $name->name
-
-      ]);
-  }
 
     /**
      * Show the form for creating a new resource.
@@ -99,11 +82,6 @@ class ListfleetController extends Controller
      */
     public function destroy($id)
     {
-
-            allnewschedule::destroy($id);
-
-            return response()->json([
-                'success' => 'Record has been deleted successfully!'
-              ]);
+        //
     }
 }

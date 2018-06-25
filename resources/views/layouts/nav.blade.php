@@ -6,13 +6,13 @@
             </a>
         </li>
         <li>
-            <a href="/listschedule">Конфигуратор расписания</a>
+            <a href="/config/2">Конфигуратор маршрутов</a>
         </li>
         <li>
             <a href="/list">Конфигуратор Гант</a>
         </li>
         <li>
-            <a href="/fleet">Оптимизация расписания</a>
+            <a href="/fleet">Конфигуратор расписания</a>
         </li>
         <li>
             <a href="/listfleet">Расписания рейсов</a>

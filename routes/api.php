@@ -9,6 +9,8 @@ Route::resource('/gantt/{id}/gantt', 'MainGanttsController');
 Route::post('/list', 'listController@addName');
 Route::delete('/gantt/{id}', 'listController@destroy');
 Route::post('/config/{id}', 'ConfigsController@store');
+Route::post('/listfleet', 'listfleetController@addName');
+Route::delete('/fleetschedule/{id}', 'listfleetController@destroy');
 
 
 
