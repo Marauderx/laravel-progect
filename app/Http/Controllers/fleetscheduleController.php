@@ -18,9 +18,12 @@ class fleetscheduleController extends Controller
      */
     public function index($id)
     {
-        $mainshedule = newschedule::all();
+        $mainshedule = newschedule::where('newschedules_id', $id)->get();
         $mainGantt = Gantt::all();
-        return view('configurator.fleetschedule',['id' => $id], compact('mainshedule', 'mainGantt'));
+        return view('configurator.fleetschedule',['id' => $id], compact('mainGantt', 'mainshedule'));
+
+
+
     }
 
     /**
@@ -60,21 +63,21 @@ class fleetscheduleController extends Controller
       $task->save();
 }
 
-      foreach ($newschedule as $que) {
-      $task = new Task();
-
-      $task->text = $que['type'] . ' ' . $que['timeOfDeparture'];
-      $task->start_date = $que['beginning'];
-      $task->duration = '1';
-      $task->progress = '0';//$request->has("progress") ? $request->progress : 0;
-      $task->parent = $task->id;
-      //$task->text = $que['type'] . ' ' . $que['timeOfDeparture'];
-      //$task->parent = $que['id'];
-      //$task->text = $que['type'] . ' ' . $que['timeOfArriving'];
-      $task->gantt_id = $request->idGantt;
-
-      $task->save();
-      }
+      // foreach ($newschedule as $que) {
+      // $task = new Task();
+      //
+      // $task->text = $que['type'] . ' ' . $que['timeOfDeparture'];
+      // $task->start_date = $que['beginning'];
+      // $task->duration = '1';
+      // $task->progress = '0';//$request->has("progress") ? $request->progress : 0;
+      // $task->parent = $task->id;
+      // //$task->text = $que['type'] . ' ' . $que['timeOfDeparture'];
+      // //$task->parent = $que['id'];
+      // //$task->text = $que['type'] . ' ' . $que['timeOfArriving'];
+      // $task->gantt_id = $request->idGantt;
+      //
+      // $task->save();
+      // }
 
       return redirect('/list/');
       // $link->type = $request->type;

@@ -49,6 +49,11 @@ Route::delete('/fleetschedule/{id}', 'listfleetController@destroy');
 Route::get('/fleetschedule/{id}', 'fleetscheduleController@index');
 Route::post('/fleetschedule/{id}', 'fleetscheduleController@store');
 
+Route::get('/edit', 'editController@index');
+
+Route::get('/aircraft', 'aircraftController@index');
+Route::post('/aircraft', 'aircraftController@store');
+
 Auth::routes();
 
 

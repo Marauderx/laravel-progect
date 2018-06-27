@@ -23,8 +23,9 @@ class FleetController extends Controller
     public function index()
     {
         $mainAircraft = aircraft::all();
+        $Aircraft = aircraft::first();
         $mainschedule = allschedule::all();
-        return view('configurator.fleet', compact('mainschedule', 'mainAircraft'));
+        return view('configurator.fleet', compact('mainschedule', 'mainAircraft', 'Aircraft'));
     }
 
     /**

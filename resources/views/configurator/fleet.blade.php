@@ -70,19 +70,19 @@
                </div>
                <div class="col-md-3 mb-3">
                  <label for="zip">Конфигурация</label>
-                 @foreach($mainAircraft as $type)
+
                  <input name="configuration" type="hidden" value="{{ $type->aircraftType}}" />
-                 <p type="text" class="form-control" id="zip" placeholder="" name="configuration" value="{{ $type->aircraftType}}" required>{{ $type->aircraftType}}</p>
-                 @endforeach
+                 <p type="text" class="form-control" id="zip" placeholder="" name="configuration" value="{{ $type->aircraftType}}" required>{{ $Aircraft->aircraftType}}</p>
+
                  <div class="invalid-feedback">
                    Zip code required.
                  </div>
                </div>
                <div class="col-md-3 mb-3">
                  <label for="zip">Средний налет</label>
-                 @foreach($mainAircraft as $type)
-                 <p type="text" class="form-control" id="zip" placeholder="" required>{{ $type->flightTime}}</p>
-                 @endforeach
+
+                 <p type="text" class="form-control" id="zip" placeholder="" required>{{ $Aircraft->flightTime}}</p>
+
                  <div class="invalid-feedback">
                    Средний годовой налет.
                  </div>

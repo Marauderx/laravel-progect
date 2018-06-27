@@ -154,7 +154,7 @@ $(document).ready(function(){
                 +result.tid
                 +"><th>"
                 +result.tid
-                +"</th><td><a href='/fleetschedule/"
+                +"</th><td><a href='/config/"
                 +result.tid
                 +"'>"
                 +result.name

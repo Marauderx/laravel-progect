@@ -17,7 +17,7 @@ Route::post('/fleetschedule/{id}', 'fleetscheduleController@store');
 Route::post('/listconfig', 'listconfigController@addName');
 Route::delete('/config/{id}', 'listconfigController@destroy');
 
-
+Route::post('/aircraft', 'aircraftController@store');
 /*
 |--------------------------------------------------------------------------
 | API Routes

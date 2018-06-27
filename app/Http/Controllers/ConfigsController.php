@@ -58,6 +58,7 @@ class ConfigsController extends Controller
         $schedule->schedules_id = $id;
 
         $schedule->save();
+
       }
 
 
@@ -196,6 +197,7 @@ class ConfigsController extends Controller
         //"name" => $name->name
 
     //]);
+
 
     }
 

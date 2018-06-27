@@ -137,6 +137,32 @@ text-decoration: none;
 
 <form>
 
+  <!-- $link = new Link();
+
+  $newschedule = newschedule::all();
+
+  $inputclear= array();
+  foreach ($newschedule as $que) {
+  $task = new Task();
+  $zag1 = $inputclear;
+  $zag2 = $inputclear;
+  $numzag = 0;
+  $zagtext1= 'Рейс ' . $que['number'] . ' действителен c ' . $que['beginning'] . ' - ' . $que['ending'] . ' ' . $que['airportOfDeparture'] . ' ' . $que['airportOfArriving'];
+  $zagtext2= $que['type'] . ' ' . $que['timeOfDeparture'];
+  $zag1['text'] = $zagtext1;
+  $zag2['text'] = $zagtext2;
+  $zag1['start_date'] = $que['beginning'];
+  $zag2['start_date'] = $que['beginning'];
+  $zag1['duration'] = '4';
+  $zag2['duration'] = '1';
+  $zag1['progress'] = '0';
+  $zag2['progress'] = '0';
+  $zag1['gantt_id'] = $request->idGantt;
+  $zag1['parent']= '0';
+  Task::create($zag1);
+  $numzag = Task::where('text', $zag1['text'])->value('id');
+  $zag2['parent'] = $numzag;
+  Task::create($zag2); -->
 </form>
 
 
