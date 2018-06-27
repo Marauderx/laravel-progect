@@ -12,6 +12,10 @@ Route::post('/config/{id}', 'ConfigsController@store');
 Route::post('/listfleet', 'listfleetController@addName');
 Route::delete('/fleetschedule/{id}', 'listfleetController@destroy');
 
+Route::post('/fleetschedule/{id}', 'fleetscheduleController@store');
+
+Route::post('/listconfig', 'listconfigController@addName');
+Route::delete('/config/{id}', 'listconfigController@destroy');
 
 
 /*

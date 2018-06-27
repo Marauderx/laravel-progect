@@ -34,7 +34,7 @@
       let id = $(event.target).data("id");
       let token = $(event.target).data("token");
       $.ajax({
-        url: "/fleetschedule/"+id,
+        url: "/config/"+id,
         type: 'DELETE',
         dataType: "JSON",
         data: {
@@ -57,25 +57,24 @@
   <!-- /#sidebar-wrapper -->
 
   <!-- Page Content -->
-    <div id="page-content-wrapper">
+  <div id="page-content-wrapper">
 
     @include('layouts.navbutton')
 
-      <div class="container-fluid">
-
-      <header>
-        <div class="container-fluid">
-          <h1>ᅠСформированное расписание</h1>
-          <p></p>
-          <br>
-        </div>
-      </header>
-
-      <hr class="mb-4">
-
-      </div>
-
 <div class="container-fluid">
+
+  <header>
+    <div class="container-fluid">
+      <h1>ᅠСписок маршрутов</h1>
+      <br>
+      <p></p>
+    </div>
+  </header>
+
+    <hr class="mb-4">
+
+
+
 
   <form id="add_name" class="validateform">
     {{ csrf_field() }}
@@ -97,11 +96,11 @@
     </tr>
   </thead>
   <tbody id="table">
-  @foreach($mainFleet as $allnewschedule)
-    <tr data-id="{{ $allnewschedule->id}}">
-      <th scope="row">{{ $allnewschedule->id}}</th>
-      <td><a href="/fleetschedule/{{ $allnewschedule->id }}">{{ $allnewschedule->name}}</a></td>
-      <td><button type="button" class="btn btn-outline-secondary btn-sm deleteFleet" data-id="{{ $allnewschedule->id }}">Удалить</button></td>
+  @foreach($mainAllschedule as $allschedule)
+    <tr data-id="{{ $allschedule->id}}">
+      <th scope="row">{{ $allschedule->id}}</th>
+      <td><a href="/config/{{ $allschedule->id }}">{{ $allschedule->name}}</a></td>
+      <td><button type="button" class="btn btn-outline-secondary btn-sm deleteFleet" data-id="{{ $allschedule->id }}">Удалить</button></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm">Изменить</button></td>
     </tr>
   @endforeach
@@ -146,7 +145,7 @@ $(document).ready(function(){
 
         $.ajax({
             type: 'POST',
-            url: '/listfleet',
+            url: '/listconfig',
             data: $('#add_name').serialize(),
             success: function(result){
               console.log(result)

@@ -36,7 +36,7 @@
 <div class="container-fluid">
 
 <header>
-  <div class="container">
+  <div class="row">
     <h1>Редактор расписания маршрутов</h1>
     <br>
     <p></p>
@@ -160,11 +160,11 @@
 </div>
 
               <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">&copy; Иркут</p>
+                <p class="mb-1"></p>
                 <ul class="list-inline">
-                  <li class="list-inline-item"><a href="#">Privacy</a></li>
-                  <li class="list-inline-item"><a href="#">Terms</a></li>
-                  <li class="list-inline-item"><a href="#">Support</a></li>
+                  <li class="list-inline-item"><a href="#"></a></li>
+                  <li class="list-inline-item"><a href="#"></a></li>
+                  <li class="list-inline-item"><a href="#"></a></li>
                 </ul>
               </footer>
               </div>

@@ -56,8 +56,8 @@ text-decoration: none;
 
 
 
-    <form>
-
+    <form method="post" action="/fleetschedule/{{ $id }}">
+      <input name="_token" type="hidden" value="{{ csrf_token() }}" />
 
       <div class="conteiner" style="overflow: scroll">
           <table class="table table-hover">
@@ -99,28 +99,27 @@ text-decoration: none;
       <div class="col-md-6 mb-3">
           <div class="form-group">
 
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Аэрофлот</option>
-                <option>Авистар-ТУ</option>
-                <option>Аврора</option>
-                <option>Азимут</option>
-                <option>Атран</option>
+
+              <select class="form-control" id="exampleFormControlSelect1" name="idGantt">
+                @foreach($mainGantt as $Gantt)
+                <option value="{{ $Gantt->id}}">{{ $Gantt->name}}</option>
+                @endforeach
               </select>
           </div>
       </div>
 
       <div class="col-md-6 mb-3">
-        <button type="button" class="btn btn-secondary btn-sm-3"><a id="white" href="/gantt/431">Сформировать в Гант</a></button>
+        <button type="submit" class="btn btn-secondary btn-sm-3">Сформировать в Гант</button>
       </div>
       </div>
     </form>
 
   <footer class="my-5 pt-5 text-muted text-center text-small">
-  <p class="mb-1">&copy; Иркут</p>
+  <p class="mb-1"></p>
   <ul class="list-inline">
-  <li class="list-inline-item"><a href="#">Privacy</a></li>
-  <li class="list-inline-item"><a href="#">Terms</a></li>
-  <li class="list-inline-item"><a href="#">Support</a></li>
+  <li class="list-inline-item"><a href="#"></a></li>
+  <li class="list-inline-item"><a href="#"></a></li>
+  <li class="list-inline-item"><a href="#"></a></li>
   </ul>
   </footer>
   </div>

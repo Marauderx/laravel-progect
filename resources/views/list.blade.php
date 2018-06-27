@@ -64,8 +64,8 @@
       <div class="container-fluid">
 
       <header>
-        <div class="container">
-          <h1>Конфигуратор Гант</h1>
+        <div class="container-fluid">
+          <h1>ᅠКонфигуратор Гант</h1>
           <p></p>
           <br>
         </div>
@@ -116,11 +116,11 @@
 </div>
 
 <footer class="my-5 pt-5 text-muted text-center text-small">
-<p class="mb-1">&copy; Иркут</p>
+<p class="mb-1"></p>
 <ul class="list-inline">
-<li class="list-inline-item"><a href="#">Privacy</a></li>
-<li class="list-inline-item"><a href="#">Terms</a></li>
-<li class="list-inline-item"><a href="#">Support</a></li>
+<li class="list-inline-item"><a href="#"></a></li>
+<li class="list-inline-item"><a href="#"></a></li>
+<li class="list-inline-item"><a href="#"></a></li>
 </ul>
 </footer>
 </div>
