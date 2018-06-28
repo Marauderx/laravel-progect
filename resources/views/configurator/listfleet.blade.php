@@ -100,7 +100,7 @@
   @foreach($mainFleet as $allnewschedule)
     <tr data-id="{{ $allnewschedule->id}}">
       <th scope="row">{{ $allnewschedule->id}}</th>
-      <td><a href="/fleetschedule/{{ $allnewschedule->id }}">{{ $allnewschedule->name}}</a></td>
+      <td><a href="/laravel-progect/public/fleetschedule/{{ $allnewschedule->id }}">{{ $allnewschedule->name}}</a></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm deleteFleet" data-id="{{ $allnewschedule->id }}">Удалить</button></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm">Изменить</button></td>
     </tr>
@@ -155,7 +155,7 @@ $(document).ready(function(){
                 +result.tid
                 +"><th>"
                 +result.tid
-                +"</th><td><a href='/fleetschedule/"
+                +"</th><td><a href='/laravel-progect/public/fleetschedule/"
                 +result.tid
                 +"'>"
                 +result.name

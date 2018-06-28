@@ -6,19 +6,19 @@
             </a>
         </li>
         <li>
-            <a href="/listconfig">Конфигуратор маршрутов</a>
+            <a href="/laravel-progect/public/listconfig">Конфигуратор маршрутов</a>
         </li>
         <li>
-            <a href="/list">Конфигуратор Гант</a>
+            <a href="/laravel-progect/public/list">Конфигуратор Гант</a>
         </li>
         <li>
-            <a href="/fleet">Конфигуратор расписания</a>
+            <a href="/laravel-progect/public/fleet">Конфигуратор расписания</a>
         </li>
         <li>
-            <a href="/listfleet">Расписания рейсов</a>
+            <a href="/laravel-progect/public/listfleet">Расписания рейсов</a>
         </li>
         <li>
-            <a href="/aircraft">Конфигуратор ВС</a>
+            <a href="/laravel-progect/public/aircraft">Конфигуратор ВС</a>
         </li>
         <a class="dropdown-item" href="{{ route('logout') }}"
            onclick="event.preventDefault();

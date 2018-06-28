@@ -99,7 +99,7 @@
   @foreach($mainAllschedule as $allschedule)
     <tr data-id="{{ $allschedule->id}}">
       <th scope="row">{{ $allschedule->id}}</th>
-      <td><a href="/config/{{ $allschedule->id }}">{{ $allschedule->name}}</a></td>
+      <td><a href="/laravel-progect/public/config/{{ $allschedule->id }}">{{ $allschedule->name}}</a></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm deleteFleet" data-id="{{ $allschedule->id }}">Удалить</button></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm">Изменить</button></td>
     </tr>
@@ -154,7 +154,7 @@ $(document).ready(function(){
                 +result.tid
                 +"><th>"
                 +result.tid
-                +"</th><td><a href='/config/"
+                +"</th><td><a href='/laravel-progect/public/config/"
                 +result.tid
                 +"'>"
                 +result.name

@@ -100,7 +100,7 @@
   @foreach($mainGantts as $Gantt)
     <tr data-id="{{ $Gantt->id}}">
       <th scope="row">{{ $Gantt->id}}</th>
-      <td><a href="/gantt/{{ $Gantt->id }}">{{ $Gantt->name}}</a></td>
+      <td><a href="/laravel-progect/public/gantt/{{ $Gantt->id }}">{{ $Gantt->name}}</a></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm deleteGantt" data-id="{{ $Gantt->id }}">Удалить</button></td>
       <td><button type="button" class="btn btn-outline-secondary btn-sm">Изменить</button></td>
     </tr>
@@ -155,7 +155,7 @@ $(document).ready(function(){
                 +result.tid
                 +"><th>"
                 +result.tid
-                +"</th><td><a href='/gantt/"
+                +"</th><td><a href='/laravel-progect/public/gantt/"
                 +result.tid
                 +"'>"
                 +result.name
